@@ -1,0 +1,124 @@
+﻿@{
+    ViewBag.Title = "Basics";
+}
+
+<div class="container" role="main">
+
+    <span id="tutorialName" style="display: none;">basics</span>
+
+    <div class="page-header">
+        <h1>Scale &amp; High Availability</h1>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                Ok, you have the application running. Now let's understand
+                some of the basic capabilities you get with every application running in Pivotal Cloud Foundry.
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="alert alert-danger" role="alert">
+                        <b>Attention!</b> Before clicking on <i><b>kill</b></i> you may
+                        want to ensure you have at least 2 application instances (HA)
+                        configured. Otherwise be ready to wait a minute or so until PCF
+                        auto-recovers the application.
+                    </div>
+                    <p>
+                        The application instance and container showed is not the
+                        one necessarily being killed (unless you have one instance, of
+                        course). PCF will load balance the request, however, we designed
+                        the application to return with the application information prior
+                        to terminating itself.
+                    </p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <a href="/home/basics" class="btn btn-default">Refresh</a> <a href="/home/basics?kill=true" class="btn btn-danger">Kill</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Application Environment Information</a>
+                        </h4>
+                    </div>
+                    <div id="collapseZero" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>
+                                <b>Application Name:</b>&nbsp;<span>@ViewBag.applicationName</span>
+                            </p>
+                            <p>
+                                <b>Instance Index:</b>&nbsp;<span id="instanceIndex">@ViewBag.instanceIndex</span>
+                            </p>
+                            <p>
+                                <b>Container Address:</b>&nbsp;<span id="containerAddr">@ViewBag.containerAddress</span>
+                            </p>
+                            <p>
+                                <b>Cell Address:</b>&nbsp;<span id="instanceAddress">@ViewBag.cellAddress</span>
+                            </p>
+                            <p>
+                                <b>.NET Framework Version:</b>&nbsp;<span id="javaVersion">@ViewBag.dotNetVersion</span>
+                            </p>
+                            <hr />
+                            <h4>Services</h4>
+
+                            <p>
+                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                            </p>
+
+                            <div id="resultsBlock-health"></div>
+                            <div id="resultsBlock-info"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Description</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="description" class="panel-body">
+                            <p>DESCRIPTION NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">The 12 Factor App</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div id="12factor" class="panel-body">
+                            <p>12 FACTORS NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<!--  /.PAGE BODY -->
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Provided to you by Pivotal!</p>
+    </div>
+</footer>
+
+
+

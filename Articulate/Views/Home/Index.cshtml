@@ -1,0 +1,118 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container" role="main">
+
+    <span id="tutorialName" style="display: none;">index</span>
+
+    <div class="page-header">
+        <h1>This is Articulate!</h1>
+    </div>
+
+    <div class="row ">
+        <div class="col-md-6">
+
+            <p>
+                The purpose of this application is to articulate some basic
+                concepts and capabilities of the Pivotal Cloud Foundry platform, specifically
+                the Elastic Runtime which is responsible for running application workloads.
+            </p>
+            <h3>Application Architecture</h3>
+            <p><code>articulate</code> is a web application that exposes friendly, browsable user interface.  However, it does not work with data directly.  It depends on the <code>attendee-service</code> application to manage data.  The <code>attendee-service</code> persists data to a MySQL database.</p>
+            <img src="/images/index2.png" class="img-rounded img-responsive center-block" alt="Cinque Terre" width="600" height="200" />
+            <h3>How to use this Application</h3>
+            <p>
+                Each menu item above links to a page that helps demonstrate a set
+                of capabilities provided by the platform. The last item, Spring Boot, highlights capabilities that come with <a href="http://projects.spring.io/spring-boot/" target="_blank">Spring Boot</a> to help build production ready microservices in minutes.
+            </p>
+            <p>Each page has the same layout with the Accordion control and up to 3 groups:</p>
+            <ol>
+                <li>
+                    <b>Application Environment Information</b> - This provides
+                    information about the application environment when running inside
+                    PCF. You can see the Application Name, Container and Services
+                    information. This is useful to show things like load balancing,
+                    self healing, service binding among other things.
+                </li>
+                <li><b>Description</b> - additional context for the given page.</li>
+                <li><a target="_blank" href="http://12factor.net/">The Twelve-Factor App</a> - a methodology for building modern, scalable applications. Links to applicable factors will be provided. </li>
+
+            </ol>
+        </div>
+
+        <div class="col-md-6">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Application Environment Information</a>
+                        </h4>
+                    </div>
+                    <div id="collapseZero" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>
+                                <b>Application Name:</b>&nbsp;<span>@ViewBag.applicationName</span>
+                            </p>
+                            <p>
+                                <b>Instance Index:</b>&nbsp;<span id="instanceIndex">@ViewBag.instanceIndex</span>
+                            </p>
+                            <p>
+                                <b>Container Address:</b>&nbsp;<span id="containerAddr">@ViewBag.containerAddress</span>
+                            </p>
+                            <p>
+                                <b>Cell Address:</b>&nbsp;<span id="instanceAddress">@ViewBag.cellAddress</span>
+                            </p>
+                            <p>
+                                <b>.NET Framework Version:</b>&nbsp;<span id="javaVersion">@ViewBag.dotNetVersion</span>
+                            </p>
+                            <hr />
+                            <h4>Services</h4>
+
+                            <p>
+                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                            </p>
+
+                            <div id="resultsBlock-health"></div>
+                            <div id="resultsBlock-info"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Description</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="description" class="panel-body">
+                            <p>DESCRIPTION NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">The 12 Factor App</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div id="12factor" class="panel-body">
+                            <p>12 FACTORS NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+<!--  /.PAGE BODY -->
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Provided to you by Pivotal!</p>
+    </div>
+</footer>

@@ -1,0 +1,157 @@
+﻿
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container" role="main">
+    <span id="tutorialName" style="display: none;">services</span>
+    <div class="page-header">
+        <h1>Services</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                By now we understand a bit about how applications are being
+                managed in Pivotal Cloud Foundry, what about services?
+            </p>
+
+            <p>
+                Let's think of services as
+                external application dependencies like a datastore or messaging
+                system.
+            </p>
+
+            <p>
+                But it can also represent many other things that we would not
+                typically think of such as <a target="_blank" href="https://docs.pivotal.io/newrelic/">application performance monitoring</a> and <a target="_blank" href="https://docs.pivotal.io/pivotalcf/customizing/autoscale-configuration.html">auto scaling</a>.
+            </p>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="row">
+
+        <div class="col-md-8">
+
+            <h4>Attendees Database Tool</h4>
+
+            <div class="col-md-4">
+                <div class="panel panel-default">
+
+                    <div class="panel-body">
+                        <form id="attendee-form" action="add-attendee" method="post" role="form">
+                            <div class="form-group required">
+                                <label>First Name</label> <input type="text" class="form-control" required="required" id="firstName" name="firstName" value="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name</label> <input type="text" class="form-control" required="required" id="lastName" name="lastName" value="" />
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label> <input type="email" class="form-control" required="required" id="emailAddress" name="emailAddress" value="" />
+                            </div>
+                            <button type="submit" class="btn btn-default center-block">Add</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div id="resultsBlock">
+
+                    <div class="panel panel-default">
+                        <table class="table table-fixed">
+                            <thead>
+                                <tr>
+                                    <th class="col-xs-3">First Name</th>
+                                    <th class="col-xs-3">Last Name</th>
+                                    <th class="col-xs-6">Email Address</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+                <a href="/services" class="btn btn-default center-block">Refresh</a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div id="accordion" class="panel-group">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero">Application Environment Information</a>
+                        </h4>
+                    </div>
+                    <div id="collapseZero" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <p>
+                                <b>Application Name:</b>&nbsp;<span>@ViewBag.applicationName</span>
+                            </p>
+                            <p>
+                                <b>Instance Index:</b>&nbsp;<span id="instanceIndex">@ViewBag.instanceIndex</span>
+                            </p>
+                            <p>
+                                <b>Container Address:</b>&nbsp;<span id="containerAddr">@ViewBag.containerAddress</span>
+                            </p>
+                            <p>
+                                <b>Cell Address:</b>&nbsp;<span id="instanceAddress">@ViewBag.cellAddress</span>
+                            </p>
+                            <p>
+                                <b>.NET Framework Version:</b>&nbsp;<span id="javaVersion">@ViewBag.dotNetVersion</span>
+                            </p>
+                            <hr />
+                            <h4>Services</h4>
+
+                            <p>
+                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                            </p>
+
+                            <div id="resultsBlock-health"></div>
+                            <div id="resultsBlock-info"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Description</a>
+                        </h4>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse">
+                        <div id="description" class="panel-body">
+                            <p>DESCRIPTION NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">The 12 Factor App</a>
+                        </h4>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse">
+                        <div id="12factor" class="panel-body">
+                            <p>12 FACTORS NOT AVAILABLE</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- ROW -->
+
+</div>
+<!-- CONTAINER -->
+<!--  /.PAGE BODY -->
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Provided to you by Pivotal!</p>
+    </div>
+</footer>
