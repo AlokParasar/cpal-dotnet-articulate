@@ -68,7 +68,7 @@
                             <h4>Services</h4>
 
                             <p>
-                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                                <b><span>user-provided</span></b>:&nbsp;<span>@ViewBag.userProvidedService</span><br />
                             </p>
 
                             <div id="resultsBlock-health"></div>
@@ -84,7 +84,19 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div id="description" class="panel-body">
-                            <p>DESCRIPTION NOT AVAILABLE</p>
+                            <p>
+                                Blue-Green deployment is an approach to upgrading application with
+                                minimal downtime. <a href="https://docs.pivotal.io/pivotalcf/devguide/deploy-apps/blue-green.html"
+                                                     target="_blank">&nbsp;Learn more.</a>
+                            </p>
+                            <p>
+                                It also enables easy rollback to the old version if the new
+                                version experience problems. It works by keeping both versions online,
+                                and switching from the old version to the new version.
+                            </p>
+                            <img src="~/Images/bluegreen1.png" class="img-rounded img-responsive center-block" alt="Cinque Terre"
+                                 width="600" height="200">
+
                         </div>
                     </div>
                 </div>

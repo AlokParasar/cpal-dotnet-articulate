@@ -20,7 +20,7 @@
             </p>
             <h3>Application Architecture</h3>
             <p><code>articulate</code> is a web application that exposes friendly, browsable user interface.  However, it does not work with data directly.  It depends on the <code>attendee-service</code> application to manage data.  The <code>attendee-service</code> persists data to a MySQL database.</p>
-            <img src="/images/index2.png" class="img-rounded img-responsive center-block" alt="Cinque Terre" width="600" height="200" />
+            <img src="~/Images/index2.png" class="img-rounded img-responsive center-block" alt="Cinque Terre" width="600" height="200" />
             <h3>How to use this Application</h3>
             <p>
                 Each menu item above links to a page that helps demonstrate a set
@@ -70,7 +70,7 @@
                             <h4>Services</h4>
 
                             <p>
-                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                                <b><span>user-provided</span></b>:&nbsp;<span>@ViewBag.userProvidedService</span><br />
                             </p>
 
                             <div id="resultsBlock-health"></div>
@@ -86,7 +86,26 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div id="description" class="panel-body">
-                            <p>DESCRIPTION NOT AVAILABLE</p>
+                            <p>
+                                If you're here it means
+                                you successfully deployed the application.
+                            </p>
+                            <p>
+                                To get here we simply used the <code>cf push</code> command to deploy the
+                                application.
+                            </p>
+                            <p>
+                                The Elastic Runtime runs applications by packaging the application and required runtime support into a <a href="https://docs.pivotal.io/pivotalcf/concepts/glossary.html" target="_blank"> droplet</a>.  Droplets are run inside containers.<a href="http://docs.pivotal.io/pivotalcf/concepts/how-applications-are-staged.html"
+                                                                                                                                                                                                                                                                               target="_blank">&nbsp;Learn more about how applications are staged.</a>
+                            </p>
+                            <div class="alert alert-success" role="alert">
+                                <b>Note:</b> PCF also supports running applications from a docker
+                                image. In that case, the buildpack is not used during the staging
+                                process.
+                            </div>
+                            <img src="~/Images/index1.png"
+                                 class="img-rounded img-responsive center-block" alt="Cinque Terre"
+                                 width="600" height="200">
                         </div>
                     </div>
                 </div>
@@ -98,7 +117,7 @@
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div id="12factor" class="panel-body">
-                            <p>12 FACTORS NOT AVAILABLE</p>
+                            <a target="_blank" href="http://12factor.net/processes">Processes</a>
                         </div>
                     </div>
                 </div>

@@ -18,10 +18,13 @@ namespace Articulate.App_Start
         public static string CellAddress;
         public static string InstanceGUID;
         public static string DotNetVersion;
+        public static string AttendeeServiceUri;
+        public static string UserProvidedService;
 
         public static void GetEnvVars()
         {
             parseVCAP_JSON();
+            parseVCAP_Services();
             InstanceIndex = Environment.GetEnvironmentVariable("INSTANCE_INDEX");
             ContainerAddress = Environment.GetEnvironmentVariable("CF_INSTANCE_ADDR");
             CellAddress = Environment.GetEnvironmentVariable("PORT");
@@ -39,10 +42,29 @@ namespace Articulate.App_Start
                     ApplicationName = json.SelectToken("name").ToString();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.Error.WriteLine("*** Error parsing VCAP JSON ***");
+                Console.Error.WriteLine("*** Error parsing VCAP JSON ***" + ex.Message);
                 throw;
+            }
+        }
+        public static void parseVCAP_Services()
+        {
+            try
+            {
+                VCAP_App = Environment.GetEnvironmentVariable("VCAP_SERVICES");
+                Console.WriteLine(VCAP_App);
+                if (VCAP_App != null)
+                {
+                    JObject json = JObject.Parse(VCAP_App);
+                    Console.WriteLine(json["user-provided"].ToString());
+                    AttendeeServiceUri = Convert.ToString(json["user-provided"][0]["credentials"]["uri"]);
+                    UserProvidedService = Convert.ToString(json["user-provided"][0]["name"]);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine("*** Error parsing VCAP JSON ***" + ex.Message);
             }
         }
     }

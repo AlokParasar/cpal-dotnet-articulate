@@ -20,7 +20,33 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <div class="panel panel-default">
+            @*<div  id ="withOutKillbtn" class="panel panel-default">
+                    <div class="panel-body">
+                        <p>
+                            You've clicked on the <i><b>Kill</b></i> button. If you're not
+                            running on PCF you're probably dead.
+                        </p>
+                        <p>
+                            If running in Pivotal Cloud Foundry,  you can check the application instance
+                            index that got the kill request with <code>cf events</code>.
+                        </p>
+                        <p>
+                            If you have more than one application instance running, then you
+                            can click <i>Refresh</i> and another application instance will
+                            reply. Otherwise, wait till the application is automatically
+                            re-started.
+                        </p>
+                        <p>
+                            Pivotal Cloud Foundry recovers failed application instances automatically for you!
+                        </p>
+                    </div>
+                    <div class="panel-footer clearfix">
+                        <div class="pull-right">
+                            <a href="/home/basics" class="btn btn-default">Refresh</a>
+                        </div>
+                    </div>
+                </div>*@
+            <div id="withKillbtn" class="panel panel-default">
                 <div class="panel-body">
                     <div class="alert alert-danger" role="alert">
                         <b>Attention!</b> Before clicking on <i><b>kill</b></i> you may
@@ -38,7 +64,7 @@
                 </div>
                 <div class="panel-footer clearfix">
                     <div class="pull-right">
-                        <a href="/home/basics" class="btn btn-default">Refresh</a> <a href="/home/basics?kill=true" class="btn btn-danger">Kill</a>
+                        <a href="/home/basics" class="btn btn-default">Refresh</a> <a href="/home/kill?kill=true" onclick="" class="btn btn-danger">Kill</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +99,7 @@
                             <h4>Services</h4>
 
                             <p>
-                                <b><span>user-provided</span></b>:&nbsp;<span>attendee-service</span><br />
+                                <b><span>user-provided</span></b>:&nbsp;<span>@ViewBag.userProvidedService</span><br />
                             </p>
 
                             <div id="resultsBlock-health"></div>
@@ -89,7 +115,20 @@
                     </div>
                     <div id="collapseOne" class="panel-collapse collapse">
                         <div id="description" class="panel-body">
-                            <p>DESCRIPTION NOT AVAILABLE</p>
+                            <p>
+                                The Elastic Runtime provides container image construction, load
+                                distribution, access management, high availability, health monitoring
+                                among many other services.<a href="http://docs.pivotal.io/pivotalcf/concepts/index.html"
+                                                             target="_blank">&nbsp;Learn more.</a>
+                            </p>
+                            <p>
+                                PCF Elastic Runtime, as a distributed system, is composed of many
+                                microservices that work together to provide platform capabilities.
+                            </p>
+                            <img src="~/Images/basics1.png"
+                                 class="img-rounded img-responsive center-block" alt="Cinque Terre"
+                                 width="600" height="200">
+                            <br>
                         </div>
                     </div>
                 </div>
@@ -101,7 +140,8 @@
                     </div>
                     <div id="collapseTwo" class="panel-collapse collapse">
                         <div id="12factor" class="panel-body">
-                            <p>12 FACTORS NOT AVAILABLE</p>
+                            <a target="_blank" href="http://12factor.net/concurrency">Concurrency</a><br>
+                            <a target="_blank" href="http://12factor.net/disposability">Disposability</a>
                         </div>
                     </div>
                 </div>
@@ -119,6 +159,20 @@
         <p class="text-muted">Provided to you by Pivotal!</p>
     </div>
 </footer>
+<script>
+
+    //var killed = false;
+
+    //function killApp(isClicked) {
+
+    //    killed = true;
+    //    if (killed)
+    //    {
+
+    //    }
+
+    //}
+</script>
 
 
 
