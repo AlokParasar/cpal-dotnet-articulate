@@ -20,33 +20,33 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            @*<div  id ="withOutKillbtn" class="panel panel-default">
-                    <div class="panel-body">
-                        <p>
-                            You've clicked on the <i><b>Kill</b></i> button. If you're not
-                            running on PCF you're probably dead.
-                        </p>
-                        <p>
-                            If running in Pivotal Cloud Foundry,  you can check the application instance
-                            index that got the kill request with <code>cf events</code>.
-                        </p>
-                        <p>
-                            If you have more than one application instance running, then you
-                            can click <i>Refresh</i> and another application instance will
-                            reply. Otherwise, wait till the application is automatically
-                            re-started.
-                        </p>
-                        <p>
-                            Pivotal Cloud Foundry recovers failed application instances automatically for you!
-                        </p>
+            <div  id ="withOutKillbtn" class="panel panel-default" style="display:none">
+                <div class="panel-body">
+                    <p>
+                        You've clicked on the <i><b>Kill</b></i> button. If you're not
+                        running on PCF you're probably dead.
+                    </p>
+                    <p>
+                        If running in Pivotal Cloud Foundry,  you can check the application instance
+                        index that got the kill request with <code>cf events</code>.
+                    </p>
+                    <p>
+                        If you have more than one application instance running, then you
+                        can click <i>Refresh</i> and another application instance will
+                        reply. Otherwise, wait till the application is automatically
+                        re-started.
+                    </p>
+                    <p>
+                        Pivotal Cloud Foundry recovers failed application instances automatically for you!
+                    </p>
+                </div>
+                <div class="panel-footer clearfix">
+                    <div class="pull-right">
+                        <a href="/home/basics" onclick="refreshKillApp()" class="btn btn-default">Refresh</a>
                     </div>
-                    <div class="panel-footer clearfix">
-                        <div class="pull-right">
-                            <a href="/home/basics" class="btn btn-default">Refresh</a>
-                        </div>
-                    </div>
-                </div>*@
-            <div id="withKillbtn" class="panel panel-default">
+                </div>
+            </div>
+            <div id ="withKillbtn" class="panel panel-default">
                 <div class="panel-body">
                     <div class="alert alert-danger" role="alert">
                         <b>Attention!</b> Before clicking on <i><b>kill</b></i> you may
@@ -64,7 +64,7 @@
                 </div>
                 <div class="panel-footer clearfix">
                     <div class="pull-right">
-                        <a href="/home/basics" class="btn btn-default">Refresh</a> <a href="/home/kill?kill=true" onclick="" class="btn btn-danger">Kill</a>
+                        <a href="/home/basics" class="btn btn-default">Refresh</a> <a href="javascript:void(0)" onclick="refreshKillApp();killApp()" class="btn btn-danger">Kill</a>
                     </div>
                 </div>
             </div>
@@ -161,17 +161,17 @@
 </footer>
 <script>
 
-    //var killed = false;
+    function killApp() {
+        $.get("/home/kill?kill=true", function (data) {
 
-    //function killApp(isClicked) {
+        });
+    }
 
-    //    killed = true;
-    //    if (killed)
-    //    {
+    function refreshKillApp() {
+        $("#withKillbtn,#withOutKillbtn").toggle();
+    }
 
-    //    }
-
-    //}
+   
 </script>
 
 
