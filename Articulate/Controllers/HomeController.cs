@@ -16,6 +16,7 @@ namespace Articulate.Controllers
             ViewBag.cellAddress = App_Start.ApplicationConfig.CellAddress;
             ViewBag.dotNetVersion = App_Start.ApplicationConfig.DotNetVersion;
             ViewBag.userProvidedService = App_Start.ApplicationConfig.UserProvidedService;
+            ViewBag.GUID = App_Start.ApplicationConfig.InstanceGUID;
             System.Diagnostics.Trace.TraceWarning("Warn*** Render Index View ***");
             System.Diagnostics.Trace.TraceInformation("TraceInformation");
             System.Diagnostics.Trace.TraceError("TraceError");
@@ -32,6 +33,7 @@ namespace Articulate.Controllers
             ViewBag.cellAddress = App_Start.ApplicationConfig.CellAddress;
             ViewBag.dotNetVersion = App_Start.ApplicationConfig.DotNetVersion;
             ViewBag.userProvidedService = App_Start.ApplicationConfig.UserProvidedService;
+            ViewBag.GUID = App_Start.ApplicationConfig.InstanceGUID;
             Console.WriteLine("*** Render Basics View ***");
             return View();
         }
@@ -45,6 +47,7 @@ namespace Articulate.Controllers
             ViewBag.cellAddress = App_Start.ApplicationConfig.CellAddress;
             ViewBag.dotNetVersion = App_Start.ApplicationConfig.DotNetVersion;
             ViewBag.userProvidedService = App_Start.ApplicationConfig.UserProvidedService;
+            ViewBag.GUID = App_Start.ApplicationConfig.InstanceGUID;
             Console.WriteLine("*** Render Services View ***");
             return View();
         }
@@ -58,6 +61,7 @@ namespace Articulate.Controllers
             ViewBag.cellAddress = App_Start.ApplicationConfig.CellAddress;
             ViewBag.dotNetVersion = App_Start.ApplicationConfig.DotNetVersion;
             ViewBag.userProvidedService = App_Start.ApplicationConfig.UserProvidedService;
+            ViewBag.GUID = App_Start.ApplicationConfig.InstanceGUID;
             Console.WriteLine("*** Render Blue/Green View ***");
             return View("Bluegreen");
         }
